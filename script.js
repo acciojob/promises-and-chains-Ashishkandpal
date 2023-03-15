@@ -25,5 +25,4 @@ btn.addEventListener('click', function() {
 			alert(data);
 		});
 	}, 4000);
-	
 })
