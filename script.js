@@ -15,14 +15,14 @@ const prom = new Promise((resolve, reject) => {
 	}
 })
 
-btn.addEventListener('click', function() {
+btn.addEventListener('click', function(e) {
 	e.preventDefault();
 	setTimeout(() => {
-		prom.then(() => {
+		prom.then((data) => {
 			alert(data);
 		})
-		.catch(() => {
-			alert(data);
+		.catch((err) => {
+			alert(err);
 		});
 	}, 4000);
 })
