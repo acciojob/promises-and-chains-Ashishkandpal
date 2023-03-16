@@ -8,10 +8,10 @@ const btn = document.querySelector('#btn');
 // creating of promise
 const prom = new Promise((resolve, reject) => {
 	if(age >= 18) {
-		resolve(`Welcome, ${fullName}. You can vote`);
+		resolve(`Welcome, ${fullName.value}. You can vote`);
 	}
 	else {
-		reject(`Oh sorry ${fullName}, You aren't old enough`);
+		reject(`Oh sorry ${fullName.value}, You aren't old enough`);
 	}
 })
 
