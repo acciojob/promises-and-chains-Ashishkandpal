@@ -1,28 +1,37 @@
+"use strict";
+
 //your JS code here. If required.
 
-const age = document.querySelector('#age');
-const fullName = document.querySelector('#name');
-const btn = document.querySelector('#btn');
+const ageElt = document.querySelector("#age");
+const fullNameElt = document.querySelector("#name");
+const btn = document.querySelector("#btn");
 
+//creating function
+const checkAge = function () {
+  const prom = new Promise((resolve, reject) => {
+    const age = ageElt.value;
+    const fullName = fullNameElt.value;
+    if (age >= 18) {
+      resolve(`Welcome, ${fullName}. You can vote`);
+    } else {
+      reject(`Oh sorry ${fullName}, You aren't old enough`);
+    }
+  });
+
+  setTimeout(() => {
+    prom
+      .then((data) => {
+        alert(data);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, 4000);
+};
 
 // creating of promise
-const prom = new Promise((resolve, reject) => {
-	if(age.value >= 18) {
-		resolve(`Welcome, ${fullName.value}. You can vote`);
-	}
-	else {
-		reject(`Oh sorry ${fullName.value}, You aren't old enough`);
-	}
-})
 
-btn.addEventListener('click', function(e) {
-	e.preventDefault();
-	setTimeout(() => {
-		prom.then((data) => {
-			alert(data);
-		})
-		.catch((err) => {
-			alert(err);
-		});
-	}, 4000);
-})
+btn.addEventListener("click", function (e) {
+  e.preventDefault();
+  checkAge();
+});
